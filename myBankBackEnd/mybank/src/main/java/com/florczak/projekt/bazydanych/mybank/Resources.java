@@ -28,7 +28,7 @@ public class Resources {
 
     @GetMapping("/{account_number}/name")
     public ResponseEntity<String> getUsersName(@PathVariable String account_number) throws SQLException {
-        return connector.getNameById(account_number);
+        return connector.getNameByAccountNumber(account_number);
     }
 
     @GetMapping("/{id}/balance-history")

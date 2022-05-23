@@ -4,14 +4,25 @@ public class Transaction {
     float value;
     String receiverAccountNumber;
     int senderId;
+    String title;
 
     public Transaction() {
     }
 
-    public Transaction(float value, String receiverAccountNumber, int senderId) {
+    public Transaction(float value, String receiverAccountNumber, int senderId, String title) {
         this.value = value;
         this.receiverAccountNumber = receiverAccountNumber;
         this.senderId = senderId;
+        this.title = title;
+    }
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public float getValue() {

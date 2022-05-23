@@ -156,7 +156,7 @@ public class Connector {
         return null;
     }
 
-    public ResponseEntity<String> getNameById(String accountNumber) throws SQLException {
+    public ResponseEntity<String> getNameByAccountNumber(String accountNumber) throws SQLException {
         ResultSet rs = null;
         try{
             preparedStatement = connection.prepareStatement
@@ -211,10 +211,11 @@ public class Connector {
 
     public ResponseEntity<Void> makeTransaction(Transaction transaction){
         try{
-            preparedStatement = connection.prepareStatement("SELECT make_transfer(?,?,?)");
+            preparedStatement = connection.prepareStatement("SELECT make_transfer(?,?,?,?)");
             preparedStatement.setString(1,transaction.getReceiverAccountNumber());
             preparedStatement.setInt(2,transaction.getSenderId());
             preparedStatement.setFloat(3,transaction.getValue());
+            preparedStatement.setString(4,transaction.getTitle());
             preparedStatement.execute();
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception e){
@@ -258,7 +259,8 @@ public class Connector {
                     "SELECT tt.name AS 'Type', "+
                         "bh.transaction_value AS 'Value', "+
                         "bh.transaction_date AS 'Date', " +
-                        "bh.senderNumber AS 'SenderNumber' "+
+                        "bh.senderNumber AS 'SenderNumber', "+
+                        "bh.title AS 'Title' " +
                         "FROM transaction_types  AS tt INNER JOIN "+
                         "balance_history AS bh ON bh.transaction_type = tt.id "+
                         "WHERE bh.account_id = ?  "+
@@ -267,14 +269,17 @@ public class Connector {
             ps.setInt(1,id);
             rs = ps.executeQuery();
             ArrayList<BalanceHistory> balanceHistoryList = new ArrayList<>();
-
+            String recipient;
             while (rs.next()){
+                recipient = this.getNameByAccountNumber(rs.getString("SenderNumber")).getBody();
                 balanceHistoryList.add(
                         new BalanceHistory(
-                                rs.getString("Type"),
                                 rs.getFloat("Value"),
                                 rs.getDate("Date"),
-                                rs.getString("SenderNumber")
+                                rs.getString("Type"),
+                                rs.getString("SenderNumber"),
+                                rs.getString("Title"),
+                                recipient
                         ));
             }
             return new ResponseEntity<>(balanceHistoryList, HttpStatus.OK);

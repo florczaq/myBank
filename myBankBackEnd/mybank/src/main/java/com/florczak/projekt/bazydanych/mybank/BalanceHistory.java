@@ -3,27 +3,35 @@ package com.florczak.projekt.bazydanych.mybank;
 import java.sql.Date;
 
 public class BalanceHistory {
-    String transaction_type;
     float value = 0.0F;
     java.sql.Date date;
+    String transaction_type;
     String senderNumber;
+    String title;
+    String recipient;
 
     public BalanceHistory() {
     }
 
-    public BalanceHistory(String transaction_type, float value, Date date, String senderNumber) {
-        this.transaction_type = transaction_type;
+    public BalanceHistory(float value, Date date, String transaction_type, String senderNumber, String title, String recipient) {
         this.value = value;
         this.date = date;
-        this.senderNumber = senderNumber;
-    }
-
-    public String getTransaction_type() {
-        return transaction_type;
-    }
-
-    public void setTransaction_type(String transaction_type) {
         this.transaction_type = transaction_type;
+        this.senderNumber = senderNumber;
+        this.title = title;
+        this.recipient = recipient;
+    }
+
+    @Override
+    public String toString() {
+        return "BalanceHistory{" +
+                "value=" + value +
+                ", date=" + date +
+                ", transaction_type='" + transaction_type + '\'' +
+                ", senderNumber='" + senderNumber + '\'' +
+                ", title='" + title + '\'' +
+                ", recipient='" + recipient + '\'' +
+                '}';
     }
 
     public float getValue() {
@@ -42,6 +50,14 @@ public class BalanceHistory {
         this.date = date;
     }
 
+    public String getTransaction_type() {
+        return transaction_type;
+    }
+
+    public void setTransaction_type(String transaction_type) {
+        this.transaction_type = transaction_type;
+    }
+
     public String getSenderNumber() {
         return senderNumber;
     }
@@ -50,13 +66,19 @@ public class BalanceHistory {
         this.senderNumber = senderNumber;
     }
 
-    @Override
-    public String toString() {
-        return "BalanceHistory{" +
-                "transaction_type='" + transaction_type + '\'' +
-                ", value=" + value +
-                ", date=" + date +
-                ", senderNumber='" + senderNumber + '\'' +
-                '}';
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(String recipient) {
+        this.recipient = recipient;
     }
 }
