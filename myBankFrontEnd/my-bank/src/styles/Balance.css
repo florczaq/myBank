@@ -1,0 +1,161 @@
+.values-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
+.values-data {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.values-data button {
+    width: 40%;
+    height: 100px;
+    background-color: transparent;
+    font-size: 125%;
+    border-radius: 10px;
+    border: 5px solid var(--second-color);
+    color: var(--second-color);
+    font-weight: 900;
+}
+
+.values-data button:hover {
+    border: 5px solid var(--main-color);
+    color: var(--main-color);
+}
+
+.bHistory {
+    width: 40%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sub-p {
+    font-size: 3em !important;
+}
+
+.values-data p {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    width: fit-content;
+    border: none;
+    position: relative;
+    font-size: 5em;
+    color: var(--second-color);
+}
+
+.values-data p:after {
+    background: none repeat scroll 0 0 transparent;
+    content: "";
+    display: block;
+    background-color: var(--main-color);
+    transition: width .7s, color .7s;
+    width: 0;
+    left: 100%;
+    height: 3px;
+}
+
+.values-data p:hover {
+    color: var(--main-color);
+}
+
+.values-data p:hover:after {
+    width: 100%;
+    left: 100%;
+}
+
+.balance,
+.savings {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 1vw;
+}
+
+.bHistory table {
+    width: 100%;
+    height: 100%;
+    border: 5px solid var(--second-color);
+    border-radius: 20%;
+    border-collapse: collapse;
+    color: var(--second-color);
+    letter-spacing: 2px;
+}
+
+.bHistory table tr {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-bottom: 2px solid var(--second-color);
+    font-size: 135%;
+}
+
+.bHistory table thead {
+    height: 20%;
+}
+
+.bHistory table td {
+    border-right: 2px solid var(--second-color);
+}
+
+.senderNumber {
+    font-size: 0.9em;
+}
+
+.senderTitle {
+    font-size: 0.8em;
+}
+
+.bHistory .table-title {
+    text-align: center;
+    font-size: 3em;
+}
+
+.incoming {
+    color: rgb(25, 177, 25);
+}
+
+.outgoing {
+    color: rgb(255, 0, 0);
+}
+
+.balance-info {
+    border: 5px solid var(--second-color);
+    padding: 20px 100px;
+    box-shadow: 10px 10px 20px #000;
+}
+
+.table-button {
+    position: absolute;
+    margin: 0;
+    width: 100px;
+    box-shadow: none;
+    background-color: transparent;
+    font-size: 90%;
+    border-radius: 1px;
+    border: 5px solid var(--second-color);
+    color: var(--second-color);
+    font-weight: 900;
+    padding: .1vw;
+}
+
+.table-button:hover {
+    border: 4px solid var(--main-color);
+    color: var(--main-color);
+}

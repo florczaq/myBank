@@ -1,0 +1,84 @@
+.big-title {
+    font-size: 3em;
+    height: 20%;
+    letter-spacing: 0.2em;
+}
+
+#personal_informations,
+#new-customer,
+#new-account,
+.customer-info-group,
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border: 5px solid var(--second-color);
+    border-radius: 20px;
+}
+
+.form h3 {
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
+}
+
+.form .info-form {
+    width: 100%;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form .info-form input {
+    margin-top: 1vh;
+    width: 50%;
+    height: 1.5em;
+    border: 2px solid var(--second-color);
+    border-radius: 20px;
+    text-align: center;
+    color: var(--main-color)
+}
+
+.form-buttons button {
+    width: 40%;
+    height: 50%;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 3px solid var(--second-color);
+    color: var(--second-color);
+    font-weight: bold;
+}
+
+.form-buttons button:hover {
+    border-color: var(--main-color);
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.info-alert {
+    text-align: center;
+    color: red;
+    font-size: 70%;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}

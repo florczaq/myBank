@@ -1,0 +1,75 @@
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30%;
+    height: 50%;
+    border: 5px solid var(--second-color);
+    border-radius: 20px;
+    padding: 5vw;
+}
+
+.login-field h2 {
+    font-size: 250%;
+    width: 100%;
+    text-align: center;
+    color: var(--second-color);
+}
+
+.login-field input {
+    padding: 0 .5vw;
+    border-radius: 5px;
+    border: 2px solid var(--second-color);
+    height: 10%;
+    color: var(--main-color);
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 15%;
+}
+
+.buttons button {
+    width: 40%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 3px solid var(--second-color);
+    color: var(--second-color);
+    font-weight: bold;
+}
+
+.buttons button:hover {
+    border-color: var(--main-color);
+    color: var(--main-color);
+}
+
+.errors {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.alert {
+    text-align: center;
+    color: red;
+    font-size: 110%;
+}
+
+.errors .alert {
+    width: 50%;
+    font-size: 90%;
+}

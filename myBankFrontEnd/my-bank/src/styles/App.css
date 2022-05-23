@@ -1,0 +1,83 @@
+:root {
+    --background: #fff;
+    --main-color: rgb(75, 17, 137);
+    --button-background: #333333;
+    --font: #000;
+    --second-color: #3f3f3f;
+    --third-color: #ffffff;
+    --forth-color: rgba(255, 255, 255, 0);
+    background-image: url("../images/background2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    box-shadow: 10px 10px 20px #000;
+}
+
+@font-face {
+    font-family: 'CoolveticaRg';
+    src: url('../font/coolvetica\ rg.otf');
+}
+
+.App {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    background-color: white;
+    width: 90vw;
+    height: 90vh;
+    border-radius: 30px;
+    color: var(--font);
+    padding: 1vh 1vw;
+    box-shadow: 20px 20px 40px #000;
+    border: 4px solid var(--second-color);
+    font-family: 'CoolveticaRg', Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em !important;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+.side {
+    min-width: 200px;
+    height: 100%;
+    padding-right: 1%;
+    border-right: 1px solid #000;
+}
+
+
+/* SCROLL */
+
+*::-webkit-scrollbar {
+    width: 6px;
+    z-index: 2;
+}
+
+*::-webkit-scrollbar-track {
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.256);
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(46, 45, 46, 0.589);
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--second-color);
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background: var(--main-color);
+}
