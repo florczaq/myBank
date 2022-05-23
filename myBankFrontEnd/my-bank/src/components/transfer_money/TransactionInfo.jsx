@@ -8,21 +8,22 @@ export default class TransactionInfo extends Component {
         super(props);
         this.state = {
             receiver: "",
-            value: 0
+            value: 0,
+            title: ""
         }
         this.validate = this.validate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
     render() {
-        let { receiver, value } = this.state;
+        let { receiver, value, title } = this.state;
         return (
             <Formik
                 validate={this.validate}
                 onSubmit={this.onSubmit}
                 validateOnChange={false}
                 validateOnBlur={false}
-                initialValues={{ receiver, value }}
+                initialValues={{ receiver, value, title }}
                 enableReinitialize={true}
             >
                 {(props) => (
@@ -36,6 +37,15 @@ export default class TransactionInfo extends Component {
                                 type='text'
                             />
                             <ErrorMessage name='receiver' component='div' className="alert" />
+                        </div>
+                        <div className="form-elements">
+                            <label>Title</label>
+                            <Field
+                                maxLength="100"
+                                name="title"
+                                type='text'
+                            />
+                            <ErrorMessage name='title' component='div' className="alert" />
                         </div>
                         <div className="form-elements">
                             <label>Value:</label>
@@ -56,18 +66,22 @@ export default class TransactionInfo extends Component {
     }
 
     onSubmit(values) {
-        this.props.onSubmit(values.receiver, values.value);
+        this.props.onSubmit(values.receiver, values.value, values.title);
     }
 
     validate(values) {
         let errors = {}
         if (!values.receiver)
-            errors.receiver = "Enter receiver account number."
+            errors.receiver = "Enter receiver account number.";
         else if (values.receiver.match(/^[0-9]+$/) == null)
-            errors.receiver = "Account number can only contain numbers."
+            errors.receiver = "Account number can only contain numbers.";
 
         if (!values.value || values.validate <= 0)
-            errors.value = "Enter value greater than 0."
+            errors.value = "Enter value greater than 0.";
+
+        if (!values.title)
+            errors.title = "Enter transfer title.";
+
         return errors;
     }
 }

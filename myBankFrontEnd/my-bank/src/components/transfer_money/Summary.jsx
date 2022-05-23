@@ -19,6 +19,10 @@ export default class Summary extends Component {
                             <td>{this.props.values.receiver}</td>
                         </tr>
                         <tr>
+                            <td className="table-type">Title: </td>
+                            <td>{this.props.values.title}</td>
+                        </tr>
+                        <tr>
                             <td className="table-type">Receiver Name: </td>
                             <td>{this.props.values.receiver_name}</td>
                         </tr>

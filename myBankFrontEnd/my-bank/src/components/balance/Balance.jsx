@@ -48,7 +48,7 @@ export default class Balance extends Component {
                             savings={this.state.savings}
                             setPage={this.setPage}
                         />
-                        <BalanceHistory />
+                        <BalanceHistory navigate={this.props.navigate} />
                     </div>
                     :
                     <SavePayOutPage savings={this.state.savings} balance={this.state.balance} option={this.state.page} goBack={this.goBack} />

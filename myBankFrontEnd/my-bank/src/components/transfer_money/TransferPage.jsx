@@ -16,7 +16,8 @@ export default class TransferPage extends Component {
             value: "",
             password: "",
             receiver_name: "",
-            senderId: ""
+            senderId: "",
+            title: ""
         }
         this.passTransactionInfo = this.passTransactionInfo.bind(this);
         this.passPassword = this.passPassword.bind(this);
@@ -49,8 +50,8 @@ export default class TransferPage extends Component {
         );
     }
 
-    passTransactionInfo(new_receiver, new_value) {
-        this.setState({ receiver: new_receiver, value: new_value });
+    passTransactionInfo(new_receiver, new_value, new_title) {
+        this.setState({ receiver: new_receiver, value: new_value, title: new_title });
         this.nextPage(1);
     }
 
@@ -67,7 +68,8 @@ export default class TransferPage extends Component {
         Connect.makeTransaction({
             receiverAccountNumber: this.state.receiver,
             senderId: SessionStore.getData("loggedUserId"),
-            value: this.state.value
+            value: this.state.value,
+            title: this.state.title
         }).then(this.nextPage(3));
     }
 

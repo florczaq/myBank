@@ -38,19 +38,25 @@ export default class BalanceHistory extends Component {
                                 <label>Sender / Receiver</label>
                             </th>
                             <th>Value</th>
-                            <th>Date</th>
+                            <th></th>
                         </tr>
                     </thead>
 
                     <tbody>
                         {this.state.balanceHistory.map((element, i) => (
                             <tr key={i}>
-                                <td className="senderNumber">{element.senderNumber}</td>
+                                <td className="senderNumber">{element.recipient}</td>
                                 <td className={element.transaction_type}>
                                     {element.transaction_type === 'incoming' ? '+' : '-'}
                                     {element.value} zł
                                 </td>
-                                <td>{element.date}</td>
+                                <td className="details-td">
+                                    <button
+                                        onClick={
+                                            () => this.props.navigate
+                                                (`/customer/${SessionStore.getData("loggedUserName")}/info/balance/transfer-details/${i}`)
+                                        } className="details-button">...</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
@@ -59,16 +65,3 @@ export default class BalanceHistory extends Component {
         );
     }
 }
-
-
-/*
-           "SELECT tt.name AS 'Type', "+
-                           "bh.transaction_value AS 'Value', "+
-                           "bh.transaction_date AS 'Date', " +
-                           "bh.senderNumber AS 'SenderNumber' "+
-                       "FROM transaction_types  AS tt INNER JOIN "+
-                           "balance_history AS bh "+
-                       "ORDER BY bh.id DESC"
-                   );
-                   WHERE bh.account_id = ?
-            */
